@@ -9,8 +9,10 @@ function parse() {
 	    var messages = threads.item(i).getElementsByClassName("message"); //get all the messages
 
    		
-   		var averageTime = 0;
-   		var numberOfJumps = 0;
+   		var averageTime1 = 0;
+   		var numberOfJumps1 = 0;
+   		var averageTime2 = 0;
+   		var numberOfJumps2 = 0;
    		var previousDate = messages.item(0).getElementsByClassName("message_header").getElementsByClassName("meta")
    		var previousPerson = messages.item(0).getElementsByClassName("message_header").getElementsByClassName("user")
    		
@@ -18,15 +20,23 @@ function parse() {
 	   		var person = messages.item(j).getElementsByClassName("message_header").getElementsByClassName("user")
 	   		var date = messages.item(j).getElementsByClassName("message_header").getElementsByClassName("meta")
 	   		
+	   		if (parseDate(date) - parseDate(previousDate)>15) {
+		   		if ((person === person1)&&(previousPerson === person2)) {
+			   		numberOfJumps1++;
+			   		averageTime1=(averageTime1*(numberOfJumps1)+(parseDate(date) - parseDate(previousDate))/(numberOfJumps1+1)
+			   	} else if () {
 
-	   		if ((person === person1)&&(previousPerson === person2)) {
-		   		numberOfJumps++;
-		   		averageTime=(averageTime*(numberOfJumps)+(parseDate(date) - parseDate(previousDate))/(numberOfJumps+1)
-		   	} else if () {
+			   	}
+			}
 
-		   	}
 
 	   		previousDate = date
+	   		previousPerson = person
 	    }
+
+	    if (averageTime1 === 0 || averageTime2 === 0) {
+	    	alert("not enough data, for debugging");
+	    }
+
 	}
 }
