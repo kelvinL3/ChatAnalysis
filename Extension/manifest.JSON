@@ -2,5 +2,10 @@
 	"manifest_version" : 2,
 	"name" : "Facebook Extension",
 	"version" : "0.1",
-	"description" : "A cool extention to help you know what friends are worth your time"
+	"description" : "A cool extention to help you know what friends are worth your time",
+	"browser_action": {
+      "default_title": "Extension",
+      "default_icon": "logo.png",
+      "default_popup": "popup.html"
+  }
 }
