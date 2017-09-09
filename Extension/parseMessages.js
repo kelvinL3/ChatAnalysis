@@ -10,7 +10,7 @@ function parse() {
 
    		
    		var averageTime = 0;
-   		var numberOfMessages = 1;
+   		var numberOfJumps = 0;
    		var previousDate = messages.item(0).getElementsByClassName("message_header").getElementsByClassName("meta")
    		var previousPerson = messages.item(0).getElementsByClassName("message_header").getElementsByClassName("user")
    		
@@ -19,9 +19,11 @@ function parse() {
 	   		var date = messages.item(j).getElementsByClassName("message_header").getElementsByClassName("meta")
 	   		
 
-	   		if (!(person === previousPerson)) {
-		   		numberOfMessages++;
-		   		averageTime=(averageTime*(numberOfMessages-1)+(parseDate(date) - parseDate(previousDate))/numberOfMessages
+	   		if ((person === person1)&&(previousPerson === person2)) {
+		   		numberOfJumps++;
+		   		averageTime=(averageTime*(numberOfJumps)+(parseDate(date) - parseDate(previousDate))/(numberOfJumps+1)
+		   	} else if () {
+
 		   	}
 
 	   		previousDate = date
